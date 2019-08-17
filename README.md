@@ -30,13 +30,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+    DOM stands for Document Object Model. Given that everything in Javascript is an object, the DOM creates a model of the HTML which we can then dynamically manipulate. This is not the same as the actual HTML. Making dynamic changes to the DOM will not affect the HTML on the index.html page.
+
 2. What is an event?
 
-3. What is an event listener?
+    An event refers to a number of interactions with the page. It could indicate when the page has loaded (i.e. the load event), a user has clicked or double clicked on something (click and dblclick respectively), etc. It could be called a "thing" that happens to an HTML element.
+
+3. What is an event listener? 
+
+    An event listener is a method which is attached to an HTML element which "listens" for an event to occur. An HTML button on the page could have an event listener with the property of 'click' assigned to it. When a user clicks on that button, it will refer to a callback function to do something on the page. 
 
 4. Why would we convert a NodeList into an Array?
 
+    NodeLists don't have access to the same range of methods that arrays have access to. If we wanted to use an array method that the nodeList did not have access to, we would need to convert it into an array to use those methods.
+
 5. What is a component?
+
+    A component is a piece of modular, DRY code which can be re-used among different sections of the site. By design, it is fairly abstract to allow a wide variety of sources to be passed through it.
 
 ### Git Set up
 
