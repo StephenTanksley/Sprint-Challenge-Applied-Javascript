@@ -11,14 +11,15 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics') //get call to the server to get data.
     .then(function (response) { //turning the response into an array we can work with.                       
-        const info = response;
-        const infoArray = info.data.topics;
+        const infoArray = response.data.topics;
         console.log(infoArray) //checking to make sure I have the right data.
 
         const topicDiv = document.querySelector('.topics')
-
         console.log(topicDiv)
 
+        infoArray.forEach((e) => {
+            topicDiv.appendChild(topicsCards(e))
+        })
 
         // We want to create a new div element for each topic and append that to the tabs span.
 
@@ -28,8 +29,8 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics') //get call to the
         console.log(error);
     })
 
-function topicsCards(Topics) {
 
+function topicsCards(Topics) {
     const topic = document.createElement('div')
     topic.classList.add('tab')
     topic.textContent = Topics
