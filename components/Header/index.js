@@ -34,6 +34,3 @@ function Header() {
 }
 
 headerContainer.appendChild(Header())
-
-
-//DEBUG THIS

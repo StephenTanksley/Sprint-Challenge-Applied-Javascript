@@ -17,3 +17,57 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+
+function ArticleMap(Topics) {
+    Topics.map(headlines => {
+            axios.get('https://lambda-times-backend.herokuapp.com/articles') //get call to the server to get data.
+                .then(function (response) { //turning the response into an array we can work with.                       
+                    const articleArray = response.data.articles;
+                    const newCard = Array.from(articleArray)
+                    console.log(newCard)
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+
+    )
+}
+const cardsContainer = document.querySelector('.cards-container')
+
+function ArticleMap(Topics) {
+    Topics.map(headlines => {
+
+    })
+}
+
+
+//This is the component creator.
+function articleCreator() {
+
+    const cardDiv = document.createElement('div')
+    const headlineDiv = document.createElement('div')
+    const authorDiv = document.createElement('div')
+    const imageContainer = document.createElement('div')
+    const authorHeadshot = document.createElement('img')
+    const authorSpan = document.createElement('span')
+
+    cardDiv.classList.add('card')
+    headlineDiv.classList.add('headline')
+    authorDiv.classList.add('author')
+    imageContainer.classList.add('img-container')
+    authorHeadshot.setAttribute('src', `${authorPhoto}`)
+    authorSpan.textContent = `By ${authorName}`
+
+    cardDiv.append(headlineDiv)
+    cardDiv.append(authorDiv)
+    authorDiv.append(imageContainer)
+    imageContainer.append(authorHeadshot)
+    authorDiv.append(authorSpan)
+
+    return cardDiv
+}
+
+// console.log(articleCreator())
