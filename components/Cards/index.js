@@ -44,22 +44,25 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles') //get call to t
         articleArray.node.map((e) => {
             cardsContainer.appendChild(articleCreator(e))
         })
+
+
+        // This is something I want to work. I'd like to programmatically 
+        // update all cards without having to spell things out.
+
+        articleArray.map(section => {
+            section.map(e => {
+                cardsContainer.append(articleCreator(e))
+            })
+        })
+
+
     })
     .catch(function (error) {
         console.log(error);
     })
 
 
-// axios.get(blahblahb)
-// .then (function(response) {
-//     something.forEach(articleArray(section)) {
-//         section.forEach() {
-//             articleArray.bootstrap.map((e) => {
-//                 cardsContainer.appendChild(articleCreator(e))
-//             })
-//         }
-//     }
-// })
+
 
 
 //This is the component creator.
