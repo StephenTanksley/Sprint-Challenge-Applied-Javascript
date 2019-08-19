@@ -25,7 +25,6 @@ function Header() {
     tempSpan.classList.add('temp')
     tempSpan.textContent = '98°'
 
-    
     headerDiv.append(dateSpan)
     headerDiv.append(headerTitle)
     headerDiv.append(tempSpan)

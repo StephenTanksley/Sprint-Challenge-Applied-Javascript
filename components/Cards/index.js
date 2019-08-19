@@ -19,33 +19,51 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 
-function ArticleMap(Topics) {
-    Topics.map(headlines => {
-            axios.get('https://lambda-times-backend.herokuapp.com/articles') //get call to the server to get data.
-                .then(function (response) { //turning the response into an array we can work with.                       
-                    const articleArray = response.data.articles;
-                    const newCard = Array.from(articleArray)
-                    console.log(newCard)
+axios.get('https://lambda-times-backend.herokuapp.com/articles') //get call to the server to get data.
+    .then(function (response) { //turning the response into an array we can work with.                       
+        const articleArray = response.data.articles;
+        const cardsContainer = document.querySelector('.cards-container')
+        console.log(articleArray)
 
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
-        }
+        articleArray.javascript.map((e) => {
+            cardsContainer.appendChild(articleCreator(e))
+        })
 
-    )
-}
-const cardsContainer = document.querySelector('.cards-container')
+        articleArray.bootstrap.map((e) => {
+            cardsContainer.appendChild(articleCreator(e))
+        })
 
-function ArticleMap(Topics) {
-    Topics.map(headlines => {
+        articleArray.technology.map((e) => {
+            cardsContainer.appendChild(articleCreator(e))
+        })
 
+        articleArray.jquery.map((e) => {
+            cardsContainer.appendChild(articleCreator(e))
+        })
+
+        articleArray.node.map((e) => {
+            cardsContainer.appendChild(articleCreator(e))
+        })
     })
-}
+    .catch(function (error) {
+        console.log(error);
+    })
+
+
+// axios.get(blahblahb)
+// .then (function(response) {
+//     something.forEach(articleArray(section)) {
+//         section.forEach() {
+//             articleArray.bootstrap.map((e) => {
+//                 cardsContainer.appendChild(articleCreator(e))
+//             })
+//         }
+//     }
+// })
 
 
 //This is the component creator.
-function articleCreator() {
+function articleCreator(article) {
 
     const cardDiv = document.createElement('div')
     const headlineDiv = document.createElement('div')
@@ -56,10 +74,13 @@ function articleCreator() {
 
     cardDiv.classList.add('card')
     headlineDiv.classList.add('headline')
+    headlineDiv.textContent = article.headline
+
+    // console.log(article.headline)
     authorDiv.classList.add('author')
     imageContainer.classList.add('img-container')
-    authorHeadshot.setAttribute('src', `${authorPhoto}`)
-    authorSpan.textContent = `By ${authorName}`
+    authorHeadshot.setAttribute('src', article.authorPhoto)
+    authorSpan.textContent = `By ${article.authorName}`
 
     cardDiv.append(headlineDiv)
     cardDiv.append(authorDiv)
@@ -70,4 +91,23 @@ function articleCreator() {
     return cardDiv
 }
 
-// console.log(articleCreator())
+
+//FIXED.
+
+
+// .then(function (response) { //turning the response into an array we can work with.                       
+//     const articleArray = response.data.articles;
+//     const cardsContainer = document.querySelector('.cards-container')
+//     console.log(articleArray)
+
+//     articleArray.javascript.map((e) => {
+//         cardsContainer.appendChild(articleContainer(e));
+//     })
+
+//     articleArray.bootstrap.map((e) => {
+//         cardsContainer.appendChild(articleContainer(e));
+//     })
+// })
+// .catch(function (error) {
+//     console.log(error);
+// })
