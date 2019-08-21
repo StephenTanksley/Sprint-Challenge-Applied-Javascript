@@ -49,11 +49,11 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles') //get call to t
         // This is something I want to work. I'd like to programmatically 
         // update all cards without having to spell things out.
 
-        articleArray.map(section => {
-            section.map(e => {
-                cardsContainer.append(articleCreator(e))
-            })
-        })
+        // articleArray.map(section => {
+        //     section.map(e => {
+        //         cardsContainer.append(articleCreator(e))
+        //     })
+        // })
 
 
     })
